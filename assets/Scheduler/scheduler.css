@@ -1,0 +1,71 @@
+.navbar.default-layout-navbar .navbar-brand-wrapper {
+    /* background: #e8f0f8;
+    transition: width 0.25s ease, background 0.25s ease;
+    -webkit-transition: width 0.25s ease, background 0.25s ease;
+    -moz-transition: width 0.25s ease, background 0.25s ease;
+    -ms-transition: width 0.25s ease, background 0.25s ease; */
+    width: 300px;
+    /* height: 70px; */
+}
+
+.navbar.default-layout-navbar .navbar-menu-wrapper {
+    /* background: #ffffff;
+    transition: width 0.25s ease, background 0.25s ease;
+    -webkit-transition: width 0.25s ease, background 0.25s ease;
+    -moz-transition: width 0.25s ease, background 0.25s ease;
+    -ms-transition: width 0.25s ease, background 0.25s ease;
+    padding-left: 15px;
+    padding-right: 15px; */
+    width: calc(100% - 300px);
+    /* height: 70px; */
+}
+
+.sidebar {
+    /* min-height: calc(100vh - 70px);
+    background: #e8f0f8;
+    font-weight: 400;
+    padding: 0;
+    padding-right: 40px; */
+    width: 300px;
+    /* z-index: 11;
+    transition: width 0.25s ease, background 0.25s ease;
+    -webkit-transition: width 0.25s ease, background 0.25s ease;
+    -moz-transition: width 0.25s ease, background 0.25s ease;
+    -ms-transition: width 0.25s ease, background 0.25s ease; */
+}
+
+.main-panel {
+    transition: width 0.25s ease, margin 0.25s ease;
+    width: calc(100% 100%);
+    width: 70%;
+    min-height: calc(100vh - 70px);
+    display: -webkit-flex;
+    display: flex;
+    padding-left: 5px;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.sidebar .nav.sub-menu .nav-item {
+    padding: 0px;
+    s width: 100%;
+}
+
+.sidebar .nav.note {
+    overflow: hidden;
+    /* flex-wrap: nowrap; */
+    flex-direction: column;
+    padding-left: 0px;
+}
+
+.pateint-ul {
+    width: 235px;
+}
+
+ul.patient-detail-ul {
+    width: 100%;
+}
+
+ul.patient-detail-ul li {
+    width: 100%;
+}

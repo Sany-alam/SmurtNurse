@@ -1,0 +1,35 @@
+.scheduler-page{
+    width: 100%;
+}
+.scheduler-page .card{
+    width: 100%!important;
+}
+.scheduler-page .card .card-body{
+    width: 95%!important;
+    padding: 15px 0px 0px 0px!important;
+    margin: auto!important;
+}
+.scheduler-page .card .card-body .collapse{
+    width: 100%!important;
+    margin: 5px 0px!important;
+}
+.sidebar .scheduler-page .card .card-body .collapse .nav.sub-menu {
+    padding: 15px;
+    list-style: none;
+    border: 1px solid #e8e8e8;
+}
+.accordion.accordion-solid-header .card .card-header a:before {
+    top: 30%;
+    right: 15px;
+}
+
+.sub-menu.patient-detail li{
+    width:100%!important;
+}
+
+.sub-menu.patient-detail li i{
+    width:10%!important;
+}
+.sub-menu.patient-detail li a{
+    width:80%!important;
+}
