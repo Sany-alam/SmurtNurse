@@ -134,8 +134,9 @@ curl_close($curl);
             // file_put_contents('test.txt',$note->date);
 
             $data.='
-            <label  for="exampleInputName1">'.$note->date.'</label>
-            <p style="color:black;font-weight:bold; font-size:15px">'.$note->patient_note.'</p><br>
+            <span style="font-weight: 600;">'.$note->date.'</span>
+            <br>
+            <span>'.$note->patient_note.'</span><br>
             ';
          }
          //return $data;

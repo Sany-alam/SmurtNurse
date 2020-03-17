@@ -33,7 +33,7 @@
 
     </head>
 
-    <body>
+    <body class="">
         <div class="container-scroller">
 
             <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
@@ -557,70 +557,69 @@
                                                 <div class="collapse" id="patient-{{$patient->id}}">
                                                     <ul class="nav flex-column sub-menu patient-detail">
                                                         <!-- <li class="nav-item d-none d-lg-block">tyjtiuy</li> -->
-                                                        <li class="nav-item"><i class="fa fa-id-card"></i><span><b>Medicaid ID :</b>
-                                                                         {{$patient->medicaid_id}}</span></li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fa fa-id-card"></i><b>Language :</b>
-                                                                         {{$patient->primary_language}}</li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fab fa-telegram"></i><b> Address :</b>
-                                                                         <span>  {{ $patient->address.",".$patient->city   }}</span></li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-id-card"></i></p>
+                                                            <p><b>Medicaid ID :</b>{{$patient->medicaid_id }}</p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-id-card"></i></p>
+                                                            <p><b>Language :</b>{{$patient->primary_language}}</p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fab fa-telegram"></i></p>
+                                                            <p><b> Address :</b><span>  {{ $patient->address.",".$patient->city   }}</span></p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fab fa-telegram"></i></p>
+                                                            <p><b> Second Address :</b><span id="second_address_patient{{$patient->id}}"> </span></p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-phone"></i></p>
+                                                            <p><b> Phone No :</b> {{ $patient->cell_phone }}</p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-rss"></i></p>
+                                                            <p><b> Assesment Type :</b> {{$patient->assesment_type}}</p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-rss"></i></p>
+                                                            <p><b> Sex :</b> <span id="sex_patient{{$patient->id}}">{{$patient->sex}}</span></p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-rss"></i></p>
+                                                            <p><b> Recertification :</b><span id="recertification_patient{{$patient->id}}">{{$patient->recertification}}</span></p>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-rss"></i></p>
+                                                            <p><b> Pet :</b> <span id="pet_patient{{$patient->id}}">{{$patient->pet}}</span></p>
+                                                        </li>
+                                                        
+                                                        <li class="nav-item">
+                                                            <p><i class="fa fa-rss"></i></p>
+                                                            <p>
+                                                            <b> Special Note :</b>
+                                                            <span id="add_note_patient{{$patient->id}}">
+                                                                <?php
+                                                                $notes =\App\patient_profile::where('id','=',$patient->id)->first()->note_archive;
 
-                                                                    <li class="nav-item"><i class="fab fa-telegram"></i><b> Second Address :</b>
-                                                                         <span id="second_address_patient{{$patient->id}}"> </span></li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fa fa-phone"></i><b> Phone No :</b>
-                                                                         {{ $patient->cell_phone }}</li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fa fa-rss"></i><b> Assesment Type :</b>
-                                                                         {{$patient->assesment_type}}</li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fa fa-rss"></i><b> Sex :</b>
-                                                                         <span id="sex_patient{{$patient->id}}">{{$patient->sex}}</span></li>
-                                                                    
+                                                                $notes = json_decode($notes);
+                                                                    //file_put_contents('test.txt',sizeof($notes));
+                                                                ?>
+                                                                @if(!empty($notes))
+                                                                @foreach ($notes as $note )
+                                                                <br>
+                                                                <span style="font-weight: 600;">{{$note->date}}</span>
+                                                                <br>
+                                                                <span>{{$note->patient_note}}</span>
 
-                                                                    <li class="nav-item"><i class="fa fa-rss"></i><b> Recertification :</b>
-                                                                         <span id="recertification_patient{{$patient->id}}">{{$patient->recertification}}</span></li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fa fa-rss"></i><b> Pet :</b>
-                                                                        <span id="pet_patient{{$patient->id}}">{{$patient->pet}}</span></li>
-                                                                    
-                                                                    <li class="nav-item"><i class="fa fa-rss"></i><b> Special Note :</b>
-                                                                        <span id="add_note_patient{{$patient->id}}">
-                                                                            <?php
-                                                                            $notes =\App\patient_profile::where('id','=',$patient->id)->first()->note_archive;
-
-                                                                            $notes = json_decode($notes);
-                                                                             //file_put_contents('test.txt',sizeof($notes));
-
-
-
-                                                                            ?>
-                                                                            @if(!empty($notes))
-                                                                            @foreach ($notes as $note )
-
-
-
-
-                                                                            <label  for="exampleInputName1">{{$note->date}}</label>
-                                                                            <p style="color:black;font-weight:bold; font-size:15px">{{$note->patient_note}}</p>
-
-                                                                            @endforeach
-                                                                            @endif
-
-
-
-
-
-
-
-
-                                                                        </span></li>
-
-                                                                    
-
-                                                                    <li>
-                                                                        <button onclick="change_address()" type="button" class="btn btn-sm btn-primary" style="font-size:10px">Edit</button> <span><button onclick="add_note()" type="button" class="btn btn-sm btn-primary" style="font-size:10px">Hold</button></span> <span><button onclick="cancel_schedule()" type="button" class="btn btn-sm btn-primary" style="font-size:10px">Cancel</button></span></li>
+                                                                @endforeach
+                                                                @endif
+                                                            </span>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <button onclick="change_address()" type="button" class="btn btn-sm btn-primary" style="font-size:10px">Edit</button> <span><button onclick="add_note()" type="button" class="btn btn-sm btn-primary" style="font-size:10px">Hold</button></span> <span><button onclick="cancel_schedule()" type="button" class="btn btn-sm btn-primary" style="font-size:10px">Cancel</button></span>
+                                                        </li>
                                                                     <input type="hidden" id="hidden_input_for_change" value="{{$patient->id}}">
                                                     </ul>
                                                 </div>

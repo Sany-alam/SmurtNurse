@@ -23679,6 +23679,11 @@ html {
     flex-direction: column;
 }
 
+.examinar.main-panel{
+    width: 100%!important;
+    margin-left: 0!important;
+}
+
 @media (max-width: 991px) {
     .main-panel {
         margin-left: 0;

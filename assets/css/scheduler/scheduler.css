@@ -25,11 +25,20 @@
 
 .sub-menu.patient-detail li{
     width:100%!important;
+    display: flex;
 }
 
-.sub-menu.patient-detail li i{
-    width:10%!important;
+.sub-menu.patient-detail li p:nth-child(1){
+    width: 15%!important;
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.5;
 }
-.sub-menu.patient-detail li a{
-    width:80%!important;
+.sub-menu.patient-detail li p:nth-child(2){
+        width: 85%!important;
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.5;;
 }

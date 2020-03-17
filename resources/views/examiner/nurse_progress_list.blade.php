@@ -29,7 +29,7 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="home-1" role="tabpanel" aria-labelledby="home-tab">
                         <div class="col-md-12 col-lg-12 col-sm-12">
-                            <div class="main-panel">
+                            <div style="width:100%;" class="examinar main-panel">
                                 <div class="content-wrapper">
                                     <div class="page-header">
 
