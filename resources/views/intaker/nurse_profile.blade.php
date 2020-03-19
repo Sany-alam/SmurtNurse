@@ -127,16 +127,15 @@
                                 <input type="text" name="prefered_start_time[]" class="form-control">
                                 <a href='javascript:void(0);'  class='removeTime'><span class='fa fa-trash'></span></a>
                                 </div> -->
-                                <div class="input-group date addDateTime timepicker-example"  data-target-input="nearest">
-                                  <div class="input-group datetimepicker" data-target=".timepicker-example" data-toggle="datetimepicker">
-                                    <input type="text" class="form-control datetimepicker-input" data-target=".timepicker-example"/>
-                                    <div class="input-group-addon input-group-append"><i class="far fa-clock input-group-text"></i></div>
-                                    <a href='javascript:void(0);'  class='removeTime'><span class='fa fa-trash'></span></a>
+                                <div class="input-group addStratTime mb-2">
+                                  <input type="text" name="prefered_start_time[]" class="form-control datetimepicker-input">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2"> <a href='javascript:void(0);'  class='removeTime'><span class='fa fa-trash'></span></a> </span>
                                   </div>
                                 </div>
                                 </td>
                                 <td>
-                                <a href="javascript:void(0);" style="font-size:18px;" id="addMoretime" title="Add More shift"><span class="fa fa-plus"></span></a>
+                                <a href="javascript:void(0);" style="font-size:18px;" class="addMoretime" title="Add More shift"><span class="fa fa-plus"></span></a>
                                   <!-- <input type="text" name="prefered_finish_time[]" class="form-control"> -->
                                 </td>
                                 <td>
@@ -154,16 +153,14 @@
 
 								<script>
 									$(function(){
-										var newRow = $(".addDateTime").clone();
-                    $("#timepicker-example").datetimepicker();
-                    $("#addMoretime").on("click", function () {
-
-                        newRow.clone().appendTo("#timetd").find(".datetimepicker").datetimepicker();
+										var newRow = $(".addStratTime").clone();
+                    $(".addMoretime").on("click", function () {
+                        newRow.clone().appendTo("#timetd").find(".addStratTime").datetimepicker();
                     });
 										$(document).on('click', '.removeTime', function() {
-											var trIndex = $(this).closest(".addDateTime").index();
+											var trIndex = $(this).closest(".addStratTime").index();
 											if(trIndex>0) {
-												$(this).closest(".addDateTime").remove();
+												$(this).closest(".addStratTime").remove();
 											} else {
 												alert("Sorry!! Can't remove first td!");
 											}
@@ -173,14 +170,11 @@
 
 									$(function(){
 										var newRow = $(".addrows").clone();
-
                     $(".datepicker").datepicker();
                     $("#addMore").on("click", function () {
 
                         newRow.clone().appendTo("#tb").find(".datepicker").datepicker();
                     });
-
-
 										$(document).on('click', '.remove', function() {
 											var trIndex = $(this).closest("tr").index();
 											if(trIndex>1) {

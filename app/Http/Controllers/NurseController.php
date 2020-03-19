@@ -176,58 +176,58 @@ curl_close($curl);
        $finish_time = explode(',',$finish_time);
 
 
-    //file_put_contents('test.txt',json_encode($start_time));
+    file_put_contents('test.txt',json_encode($start_time));
 
-       $prefered_date_time = array();
-       for($i=0;$i<sizeof($prefered_date);$i++)
-       {
-         array_push($prefered_date_time,['date'=>$prefered_date[$i],'start_time'=>$start_time[$i],'finish_time'=>$finish_time[$i]]);
-       }
-        $nurse = new nurse_profile();
-        $nurse->user_id = 1;
-        $nurse->name = $request->name;
-        $nurse->gender =$request->gender;
-        $nurse->language =$request->language;
+    //    $prefered_date_time = array();
+    //    for($i=0;$i<sizeof($prefered_date);$i++)
+    //    {
+    //      array_push($prefered_date_time,['date'=>$prefered_date[$i],'start_time'=>$start_time[$i],'finish_time'=>$finish_time[$i]]);
+    //    }
+    //     $nurse = new nurse_profile();
+    //     $nurse->user_id = 1;
+    //     $nurse->name = $request->name;
+    //     $nurse->gender =$request->gender;
+    //     $nurse->language =$request->language;
 
-        $nurse->email_address =$request->email;
-        $nurse->nurse_registration_no =$request->registration_no;
-        $nurse->phone_number =$request->phone_number;
-        $nurse->address =$request->address;
-        $nurse->prefered_date_time =$request->prefered_day;
-        $nurse->prefered_location =$request->address;
-        $nurse->prefered_date_time = json_encode($prefered_date_time);
+    //     $nurse->email_address =$request->email;
+    //     $nurse->nurse_registration_no =$request->registration_no;
+    //     $nurse->phone_number =$request->phone_number;
+    //     $nurse->address =$request->address;
+    //     $nurse->prefered_date_time =$request->prefered_day;
+    //     $nurse->prefered_location =$request->address;
+    //     $nurse->prefered_date_time = json_encode($prefered_date_time);
 
-        $nurse->prefered_city =$request->city;
-        $nurse->prefered_county =$request->country;
-        $nurse->prefered_zip =$request->zip;
-        $nurse->nurse_area =$request->prefered_area;
-        $nurse->save();
-        $nurse_id = $nurse->id;
-        $nurse_zip = $nurse->prefered_zip;
-        $patient = patient_profile::get();
-        $nurse_address = $request->address.",".$request->city.",".$request->country.','.$request->zip;
-        for ($m = 0; $m < sizeof($patient); $m++) {
+    //     $nurse->prefered_city =$request->city;
+    //     $nurse->prefered_county =$request->country;
+    //     $nurse->prefered_zip =$request->zip;
+    //     $nurse->nurse_area =$request->prefered_area;
+    //     $nurse->save();
+    //     $nurse_id = $nurse->id;
+    //     $nurse_zip = $nurse->prefered_zip;
+    //     $patient = patient_profile::get();
+    //     $nurse_address = $request->address.",".$request->city.",".$request->country.','.$request->zip;
+    //     for ($m = 0; $m < sizeof($patient); $m++) {
 
-            $patient_id = $patient[$m]->id;
-            //file_put_contents('test.txt', $patient_id);
-            $patient_address = $patient[$m]['address'] . ',' . $patient[$m]['city'].','.$patient[$m]['country'].','.$patient[$m]['zip_code'];
-           //$patient_zip = $patient[$m]['zip_code'];
-            $shortest_distance = $this->find_distance($nurse_address, $patient_address);
+    //         $patient_id = $patient[$m]->id;
+    //         //file_put_contents('test.txt', $patient_id);
+    //         $patient_address = $patient[$m]['address'] . ',' . $patient[$m]['city'].','.$patient[$m]['country'].','.$patient[$m]['zip_code'];
+    //        //$patient_zip = $patient[$m]['zip_code'];
+    //         $shortest_distance = $this->find_distance($nurse_address, $patient_address);
 
 
-            $distance_table = new distance_table();
-            $distance_table->patient_id = $patient_id;
-            $distance_table->nurse_id = $nurse_id;
-            $distance_table->shortest_distance = $shortest_distance['distance'];
-            $distance_table->duration = $shortest_distance['duration'];
-            $distance_table->patient_lat = $shortest_distance['patient_lat'];
-            $distance_table->patient_lon = $shortest_distance['patient_lon'];
-            $distance_table->shortest_nurse_lat = $shortest_distance['nurse_lat'];
-            $distance_table->shortest_nurse_lon = $shortest_distance['nurse_lon'];
+    //         $distance_table = new distance_table();
+    //         $distance_table->patient_id = $patient_id;
+    //         $distance_table->nurse_id = $nurse_id;
+    //         $distance_table->shortest_distance = $shortest_distance['distance'];
+    //         $distance_table->duration = $shortest_distance['duration'];
+    //         $distance_table->patient_lat = $shortest_distance['patient_lat'];
+    //         $distance_table->patient_lon = $shortest_distance['patient_lon'];
+    //         $distance_table->shortest_nurse_lat = $shortest_distance['nurse_lat'];
+    //         $distance_table->shortest_nurse_lon = $shortest_distance['nurse_lon'];
 
-            $distance_table->save();
+    //         $distance_table->save();
 
-        }
+    //     }
 
     //     //file_put_contents('test.txt',$request->all());
 
